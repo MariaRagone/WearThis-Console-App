@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace WearThis_Console_App
 {
-    public class Outfit
+    public abstract class Outfit
     {
         //PROPERTIES------------------------------------
         public string color { get; set; }
@@ -25,18 +19,13 @@ namespace WearThis_Console_App
         }
 
         //METHODS---------------------------------------
-        public void GetOutfit(Top top, Bottom bottom)
-
-        {
-            Console.WriteLine($"Your outfit is {top} and {bottom}");
-        }
     }
 
-    Top TopPart = new Top();
-    Bottom bottomPart = new Bottom(Bottom.color);
 
     public class Top : Outfit
     {
+        //PROPERTIES------------------------------------
+
         //strapless, tank, cap, short, 3/4, long
         public string sleeveLength { get; set; }
 
@@ -48,6 +37,17 @@ namespace WearThis_Console_App
 
         //blouse, cardigan, collared, sweater, tank, t-shirt
         public string type { get; set; }
+
+        //CONSTRUCTOR------------------------------------
+        public Top(string _sleeveLength, string _fit, string _length, string _type)
+        {
+            sleeveLength = _sleeveLength;
+            fit = _fit;
+            length = _length;
+            type = _type;
+        }
+
+        Top myTop = new Top("Red", true, "Casual");
     }
 
     public class Bottom : Outfit
@@ -62,5 +62,12 @@ namespace WearThis_Console_App
         public string type { get; set; }
     }
 
+    public void GetOutfit(Top top, Bottom bottom)
+
+    {
+        Console.WriteLine($"Your outfit is {top.color} {top.type} with {bottom.color} {bottom.type}");
+        Outfit TopPart = new Top();
+        Outfit bottomPart = new Bottom();
+    }
 
 }
