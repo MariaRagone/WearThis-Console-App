@@ -1,0 +1,5 @@
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.csproj.AssemblyReference.cache
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.AssemblyInfoInputs.cache
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.AssemblyInfo.cs
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.csproj.CoreCompileInputs.cache

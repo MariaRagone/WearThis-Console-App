@@ -5,14 +5,14 @@ string filePath = "../../../LibraryDatabase.txt";
 if (File.Exists(filePath) == false)
 {
     StreamWriter tempWriter = new StreamWriter(filePath);
-    tempWriter.WriteLine("Where the Sidewalk Ends|Shel Silverstein|true");
+    tempWriter.WriteLine("Red|false|Casual");
     tempWriter.Close();
 }
 StreamReader reader = new StreamReader(filePath);
-//List<Book> searchResults = new List<Book>();
-//List<Book> books = new List<Book>();
-//List<Book> checkedOut = new List<Book>();
-//List<Book> currentlyCheckedOut = new List<Book>();
+List<Top> searchResults = new List<Top>();
+List<Top> tops = new List<Top>();
+List<Outfit> wearThis = new List<Outfit>();
+List<Outfit> wearing = new List<Outfit>();
 static void GetOutfit(Top top, Bottom bottom)
 
 {
