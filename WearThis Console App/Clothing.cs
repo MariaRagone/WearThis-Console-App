@@ -33,7 +33,8 @@ namespace WearThis_Console_App
         //virtual methods can be overwritten
         public override string ToString()
         {
-            return String.Format("{o,20} {1,20}, 2,20}, ${3,20:c}", Color, HasPattern, Category);
+            return String.Format("{0,20} {1,20} {2,20}", Color, HasPattern, Category);
         }
+
     }
 }

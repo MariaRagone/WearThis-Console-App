@@ -33,7 +33,7 @@ namespace WearThis_Console_App
         //public void GetOutfit
         public override string ToString() //overrides the parent
         {
-            return base.ToString() + String.Format("{0,10}, {1,10}", SleeveLength, Fit, Length, Type); //ToString()
+            return base.ToString() + String.Format("{0,10} {1,10} {2,10} {3,10}", SleeveLength, Fit, Length, Type); //ToString()
         }
 
     }

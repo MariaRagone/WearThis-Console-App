@@ -12,27 +12,26 @@ namespace WearThis_Console_App
     {
         //properties
         //all of the partent properties come down to the child (color, hasPattern, category)
-        public string fit { get; set; } //skinny, straight, boot, A-line, shift
-        public string length { get; set; }   //mini, short, medium, ankle, long
-        public string type { get; set; }  //dress, jeans, pants, shorts, skirts
+        public string Fit { get; set; } //skinny, straight, boot, A-line, shift
+        public string Length { get; set; } //mini, short, medium, ankle, long
+        public string Type { get; set; } //dress, jeans, pants, shorts, skirts
+
         //constructors
-        public Bottom (string _color, bool _hasPattern, string _category, string _fit, string _length, string _type)
+        public Bottom(string _color, bool _hasPattern, string _category, string _fit, string _length, string _type)
             : base //relates back to parent constructor, defines what part of the constructor is the parent
             (_color, _hasPattern, _category)
-        {
-            fit = _fit;
-            length = _length;
-            type = _type;
 
+        {//these are the new properties for TOPS
+            Fit = _fit;
+            Length = _length;
+            Type = _type;
         }
 
         //methods
         //public void GetOutfit
-        public override string MakeOutfit(string color, bool hasPattern, string category)
+        public override string ToString() //overrides the parent
         {
-            base.MakeOutfit(color, hasPattern, category);
-            return color;
-
+            return base.ToString() + String.Format("{0,10}, {1,10}, {2,10}", Fit, Length, Type); //ToString()
         }
 
     }

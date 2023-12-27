@@ -3,3 +3,13 @@ C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\
 C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.AssemblyInfoInputs.cache
 C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.AssemblyInfo.cs
 C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.csproj.CoreCompileInputs.cache
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\bin\Debug\net6.0\WearThis Console App.exe
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\bin\Debug\net6.0\WearThis Console App.deps.json
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\bin\Debug\net6.0\WearThis Console App.runtimeconfig.json
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\bin\Debug\net6.0\WearThis Console App.dll
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\bin\Debug\net6.0\WearThis Console App.pdb
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.dll
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\refint\WearThis Console App.dll
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.pdb
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\WearThis Console App.genruntimeconfig.cache
+C:\Users\maria\source\repos\WearThis Console App\WearThis Console App\obj\Debug\net6.0\ref\WearThis Console App.dll
