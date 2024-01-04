@@ -39,14 +39,32 @@ List<Bottom> BottomsList = new List<Bottom>()
     new Bottom("Salmon", false, "Casual", "Skinny", "Ankle", "Jeans"),
 };
 
+//RUN THE PROGRAM
+Console.WriteLine("Welcome to Wear This! I will help you decide what to wear today using the clothin you already own.");
+Console.WriteLine("Make a selection.");
+Console.WriteLine("What type of clothing would you like to add?");
+
+Console.WriteLine("1. View Closet, 2. Add Clothing");
+int clothingChoice = 0;
+while(int.TryParse(Console.ReadLine(), out clothingChoice) ==false || clothingChoice <1 || clothingChoice >2)
+{
+    { Console.WriteLine("Invalid response. Try again"); } //error message
+    if (clothingChoice == 1) //display the closet
+    {
+        Console.WriteLine("Tops:");
+        DisplayTops(TopsList);
+        Console.WriteLine("Bottoms:");
+        DisplayBottoms(BottomsList);
+    }
+}
 DisplayTops(TopsList);
 
-//bool runProgram = true;
-//while (runProgram)
-//{
-//    DisplayTops(TopsList);
+bool runProgram = true;
+while (runProgram)
+{
+    DisplayTops(TopsList);
 
-//}
+}
 
 static void DisplayTops(List<Top>fakeTopList)
 {
@@ -58,5 +76,17 @@ static void DisplayTops(List<Top>fakeTopList)
     }
     Console.WriteLine($"{fakeTopList.Count + 1}. Add Top");
     Console.WriteLine($"{fakeTopList.Count + 2}. Quit");
+
+}
+static void DisplayBottoms(List<Bottom> fakeBottomList)
+{
+    Console.WriteLine($"{"Color",20} {"Has Pattern",20} {"Category",20} {"Sleeve Length",20} {"Fit",20} {"Length",20} {"Type",20}");
+
+    for (int i = 0; i < fakeBottomList.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {fakeBottomList[i]}");
+    }
+    Console.WriteLine($"{fakeBottomList.Count + 1}. Add Top");
+    Console.WriteLine($"{fakeBottomList.Count + 2}. Quit");
 
 }
