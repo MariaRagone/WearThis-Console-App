@@ -43,13 +43,13 @@ List<Bottom> BottomsList = new List<Bottom>()
 Console.WriteLine("Welcome to Wear This! I will help you decide what to wear today using the clothing you already own.");
 //loop the program
 bool runProgram = true;
+        DisplayMenu();
 while (runProgram)
 {
     int menuChoice = -1;
     //displaying the menue (view closet or add clothing)
     while (menuChoice <= -1 || menuChoice >= 3)
     {
-        DisplayMenu();
         while (int.TryParse(Console.ReadLine(), out menuChoice) == false)
         {
             {
@@ -66,7 +66,8 @@ while (runProgram)
     }
     else if (menuChoice == 2) //add clothing
     {
-        Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
+        addClothing();
+        //Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
     }
     else if (menuChoice == 3) //quit
     {
@@ -117,7 +118,7 @@ static Top addTop()
     //pretent these are all validated
     string color = Console.ReadLine();
     Console.WriteLine("Does it have a pattern?");
-    bool pattern = bool.Parse(Console.ReadLine());
+    bool pattern = bool.Parse(Console.ReadLine().ToLower());
     Console.WriteLine("Is it casual, dressy, business casual, or business?");
     string category = Console.ReadLine();
     Console.WriteLine("What is the sleeve length: strapless, tank, cap, short, 3/4, long");
