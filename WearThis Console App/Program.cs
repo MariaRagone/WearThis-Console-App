@@ -68,7 +68,7 @@ while (runProgram)
     {
         Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
     }
-    else if (menuChoice == 3)
+    else if (menuChoice == 3) //quit
     {
         Console.WriteLine("Bye!");
         runProgram = false;
@@ -76,16 +76,7 @@ while (runProgram)
     }
 }
 
-//runProgram = Validator.GetContinue("Do you want to view another category?");
-
-//DisplayTops(TopsList);
-
-//while (runProgram)
-//{
-//    DisplayTops(TopsList);
-
-//}
-
+//runProgram = Validator.GetContinue("Do you want to...?");
 
 //METHODS
 static void DisplayTops(List<Top> fakeTopList)
@@ -120,6 +111,26 @@ static void DisplayMenu()
     Console.WriteLine($"3. Quit");
 }
 
+static Top addTop()
+{
+    Console.WriteLine("What color is it?");
+    //pretent these are all validated
+    string color = Console.ReadLine();
+    Console.WriteLine("Does it have a pattern?");
+    bool pattern = bool.Parse(Console.ReadLine());
+    Console.WriteLine("Is it casual, dressy, business casual, or business?");
+    string category = Console.ReadLine();
+    Console.WriteLine("What is the sleeve length: strapless, tank, cap, short, 3/4, long");
+    string sleeveLength = Console.ReadLine();
+    Console.WriteLine("Is it fitted or loose?");
+    string fit = Console.ReadLine();
+    Console.WriteLine("Is it short,medium, or long");
+    string length = Console.ReadLine();
+    Console.WriteLine("Is it a blouse, cardigan, collared, sweater, tank, or t-shirt");
+    string type = Console.ReadLine();
+
+    return new Top(color, pattern, category, sleeveLength, fit, length, type);
+}
 static void addClothing()
 {
     Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
@@ -136,20 +147,6 @@ static void addClothing()
     }
     if (clothingChoice == 1)
     {
-        Console.WriteLine("What color is it?");
-        //pretent these are all validated
-        string color = Console.ReadLine();
-        Console.WriteLine("Does it have a pattern?");
-        string pattern = Console.ReadLine();
-        Console.WriteLine("Is it casual, dressy, business casual, or business?");
-        string category = Console.ReadLine();
-        Console.WriteLine("What is the sleeve length: strapless, tank, cap, short, 3/4, long");
-        string sleeveLength = Console.ReadLine();
-        Console.WriteLine("Is it fitted or loose?");
-        string fit = Console.ReadLine();
-        Console.WriteLine("Is it short,medium, or long");
-        string length = Console.ReadLine();
-        Console.WriteLine("Is it a blouse, cardigan, collared, sweater, tank, or t-shirt");
-        string type = Console.ReadLine();
+        addTop();
     }
 }
