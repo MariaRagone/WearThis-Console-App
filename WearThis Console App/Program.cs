@@ -88,8 +88,8 @@ static void DisplayTops(List<Top> fakeTopList)
     {
         Console.WriteLine($"{i + 1}. {fakeTopList[i]}");
     }
-    Console.WriteLine($"{fakeTopList.Count + 1}. Add Top");
-    Console.WriteLine($"{fakeTopList.Count + 2}. Quit");
+    //Console.WriteLine($"{fakeTopList.Count + 1}. Add Top"); 
+    //Console.WriteLine($"{fakeTopList.Count + 2}. Quit");
 
 }
 static void DisplayBottoms(List<Bottom> fakeBottomList)
@@ -100,9 +100,6 @@ static void DisplayBottoms(List<Bottom> fakeBottomList)
     {
         Console.WriteLine($"{i + 1}. {fakeBottomList[i]}");
     }
-    Console.WriteLine($"{fakeBottomList.Count + 1}. Add Bottom");
-    Console.WriteLine($"{fakeBottomList.Count + 2}. Quit");
-
 }
 static void DisplayMenu()
 {
@@ -111,7 +108,6 @@ static void DisplayMenu()
     Console.WriteLine($"2. Add Clothing");
     Console.WriteLine($"3. Quit");
 }
-
 static Top addTop()
 {
     Console.WriteLine("What color is it?");
