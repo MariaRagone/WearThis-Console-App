@@ -69,7 +69,11 @@ while (runProgram)
         addClothing();
         //Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
     }
-    else if (menuChoice == 3) //quit
+    else if (menuChoice == 3 )
+    {
+        getOutfit(TopsList, BottomsList);
+    }
+    else if (menuChoice == 4) //quit
     {
         Console.WriteLine("Bye!");
         runProgram = false;
@@ -106,7 +110,9 @@ static void DisplayMenu()
     Console.WriteLine("Choose an option:");
     Console.WriteLine($"1. View Closet");
     Console.WriteLine($"2. Add Clothing");
-    Console.WriteLine($"3. Quit");
+    Console.WriteLine($"3. Get Outfit");
+    Console.WriteLine($"4. Quit");
+
 }
 static Top addTop()
 {
@@ -147,3 +153,13 @@ static void addClothing()
         addTop();
     }
 }
+static void getOutfit(List<Top> TopsList, List<Bottom> BottomsList)
+{
+    List<Top> randomTopList = TopsList;
+    Random random = new Random();
+    Top randomTop = randomTopList[random.Next(randomTopList.Count)];
+    Console.WriteLine($"You should Wear This top: {randomTop.Color} {randomTop.HasPattern} {randomTop.Category} {randomTop.SleeveLength} {randomTop.Fit} {randomTop.Length} {randomTop.Type}");
+}
+
+
+
