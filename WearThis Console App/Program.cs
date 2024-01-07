@@ -153,6 +153,8 @@ static void addClothing()
         addTop();
     }
 }
+
+//THIS METHOD IS NOT WORKING YET.
 static void getOutfit(List<Top> TopsList, List<Bottom> BottomsList)
 {
     List<Top> randomTopList = TopsList;
