@@ -65,17 +65,28 @@ DisplayMenu();
         Console.WriteLine("Bottoms:");
         DisplayBottoms(BottomsList);
         continue;
+        //so far this only shows the TopsList from above and not any items that were added from user inputs when running the program
     }
     else if (menuChoice == 2) //add clothing
     {
         addClothing();
         continue;
     }
-    else if (menuChoice == 3)
+    else if (menuChoice == 3) //add clothing
     {
-        getOutfit(TopsList, BottomsList);
+        addClothing();
         continue;
     }
+
+    //else if (menuChoice == 3)
+    //{
+    //    Console.WriteLine("you picked 3");
+    //    //Top randomTop = new Top ("Red", true, "Business", "Cap", "Loose", "Medium", "Blouse");
+    //    //Console.WriteLine($"You should Wear This top: {randomTop.Color} {randomTop.HasPattern} {randomTop.Category} {randomTop.SleeveLength} {randomTop.Fit} {randomTop.Length} {randomTop.Type}");
+
+    //    //getOutfit(TopsList);
+    //    continue;
+    //}
     else if (menuChoice == 4) //quit
     {
         Console.WriteLine("Bye!");
@@ -170,11 +181,16 @@ static List<Top> addTop(List<Top> originalList)
 }
 
 //THIS METHOD IS NOT WORKING YET.
-static void getOutfit(List<Top> TopsList, List<Bottom> BottomsList)
+static void getOutfit(List<Top> TopsList)
 {
-    List<Top> randomTopList = TopsList;
+    if (TopsList.Count == 0)
+    {
+        Console.WriteLine("No tops available.");
+        return;
+    }
     Random random = new Random();
-    Top randomTop = randomTopList[random.Next(randomTopList.Count)];
+    Top randomTop = TopsList[random.Next(TopsList.Count)];
+    string hasPattern = randomTop.HasPattern ? "Yes" : "No";
     Console.WriteLine($"You should Wear This top: {randomTop.Color} {randomTop.HasPattern} {randomTop.Category} {randomTop.SleeveLength} {randomTop.Fit} {randomTop.Length} {randomTop.Type}");
 }
 
