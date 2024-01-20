@@ -43,7 +43,7 @@ List<Bottom> BottomsList = new List<Bottom>()
 Console.WriteLine("Welcome to Wear This! I will help you decide what to wear today using the clothing you already own.");
 //loop the program
 bool runProgram = true;
-        DisplayMenu();
+DisplayMenu();
 while (runProgram)
 {
     int menuChoice = -1;
@@ -69,7 +69,7 @@ while (runProgram)
         addClothing();
         //Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
     }
-    else if (menuChoice == 3 )
+    else if (menuChoice == 3)
     {
         getOutfit(TopsList, BottomsList);
     }
@@ -87,7 +87,6 @@ while (runProgram)
 static void DisplayTops(List<Top> fakeTopList)
 {
     Console.WriteLine($"{"Color",20} {"Has Pattern",20} {"Category",20} {"Sleeve Length",20} {"Fit",20} {"Length",20} {"Type",20}");
-
     for (int i = 0; i < fakeTopList.Count; i++)
     {
         Console.WriteLine($"{i + 1}. {fakeTopList[i]}");
@@ -98,7 +97,7 @@ static void DisplayTops(List<Top> fakeTopList)
 }
 static void DisplayBottoms(List<Bottom> fakeBottomList)
 {
-    Console.WriteLine($"{"Color",20} {"Has Pattern",20} {"Category",20} {"Sleeve Length",20} {"Fit",20} {"Length",20} {"Type",20}");
+    Console.WriteLine($"{"Color",20} {"Has Pattern",20} {"Category",20} {"Fit",20} {"Length",20} {"Type",20}");
 
     for (int i = 0; i < fakeBottomList.Count; i++)
     {
@@ -112,15 +111,23 @@ static void DisplayMenu()
     Console.WriteLine($"2. Add Clothing");
     Console.WriteLine($"3. Get Outfit");
     Console.WriteLine($"4. Quit");
-
 }
-static Top addTop()
+static List<Top> addTop(List<Top> originalList)
 {
     Console.WriteLine("What color is it?");
     //pretent these are all validated
     string color = Console.ReadLine();
-    Console.WriteLine("Does it have a pattern?");
-    bool pattern = bool.Parse(Console.ReadLine().ToLower());
+    Console.WriteLine("Does it have a pattern? y/n?");
+    bool hasPattern = false;
+    string pattern = Console.ReadLine().ToLower().Trim();
+    if (pattern == "y")
+    {
+        hasPattern = true;
+    }
+    else
+    {
+        hasPattern = false;
+    }
     Console.WriteLine("Is it casual, dressy, business casual, or business?");
     string category = Console.ReadLine();
     Console.WriteLine("What is the sleeve length: strapless, tank, cap, short, 3/4, long");
@@ -131,9 +138,11 @@ static Top addTop()
     string length = Console.ReadLine();
     Console.WriteLine("Is it a blouse, cardigan, collared, sweater, tank, or t-shirt");
     string type = Console.ReadLine();
-
-    return new Top(color, pattern, category, sleeveLength, fit, length, type);
+    Top newTop = new Top(color, hasPattern, category, sleeveLength, fit, length, type);
+    originalList.Add(newTop);
+    return originalList;
 }
+
 static void addClothing()
 {
     Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
@@ -150,7 +159,7 @@ static void addClothing()
     }
     if (clothingChoice == 1)
     {
-        addTop();
+        addTop(TopsList);
     }
 }
 
