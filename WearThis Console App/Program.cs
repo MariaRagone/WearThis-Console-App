@@ -43,9 +43,9 @@ List<Bottom> BottomsList = new List<Bottom>()
 Console.WriteLine("Welcome to Wear This! I will help you decide what to wear today using the clothing you already own.");
 //loop the program
 bool runProgram = true;
-DisplayMenu();
 while (runProgram)
 {
+DisplayMenu();
     int menuChoice = -1;
     //displaying the menue (view closet or add clothing)
     while (menuChoice <= -1 || menuChoice >= 3)
@@ -56,6 +56,7 @@ while (runProgram)
                 Console.WriteLine("Invalid response. Try again");//error message 
             }
         }
+        continue;
     }
     if (menuChoice == 1) //display the closet
     {
@@ -63,21 +64,22 @@ while (runProgram)
         DisplayTops(TopsList);
         Console.WriteLine("Bottoms:");
         DisplayBottoms(BottomsList);
+        continue;
     }
     else if (menuChoice == 2) //add clothing
     {
         addClothing();
-        //Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
+        continue;
     }
     else if (menuChoice == 3)
     {
         getOutfit(TopsList, BottomsList);
+        continue;
     }
     else if (menuChoice == 4) //quit
     {
         Console.WriteLine("Bye!");
         runProgram = false;
-        break;
     }
 }
 
