@@ -9,7 +9,7 @@ namespace WearThis_Console_App
 {
     internal class SimpleClothing
     {
-        public string Type { get; set; } //top, bottom
+        public string Type { get; set; } //top, jeans, pants, sweater
         public string Name { get; set; } // jeans
         public string Color { get; set; }
 

@@ -4,6 +4,12 @@ using System.Reflection;
 using System.Drawing;
 using System.ComponentModel.DataAnnotations;
 
+//TO DO: 
+//add database
+//generate a random bottom
+//formatting the printing for the GetOutfit()
+//create some fashion rules
+
 List<Top> TopsList = new List<Top>()
 {
     new Top("Red", true, "Dressy", "Cap", "Fitted", "Short", "Blouse"),
@@ -77,7 +83,7 @@ DisplayMenu();
     {
         Console.WriteLine("you picked 3");
 
-        getOutfit(TopsList);
+        getOutfit(TopsList, BottomsList);
         continue;
     }
     else if (menuChoice == 4) //quit
@@ -174,17 +180,32 @@ static List<Top> addTop(List<Top> originalList)
 }
 
 //THIS METHOD IS NOT WORKING YET.
-static void getOutfit(List<Top> TopsList)
+static void getOutfit(List<Top> TopsList, List<Bottom> BottomsList)
 {
-    if (TopsList.Count == 0)
+    if (TopsList.Count == 0 || BottomsList.Count == 0)
     {
         Console.WriteLine("No tops available.");
         return;
     }
+    //Get a random top
     Random random = new Random();
-    Top randomTop = TopsList[random.Next(TopsList.Count)];
-    string hasPattern = randomTop.HasPattern ? "Yes" : "No";
-    Console.WriteLine($"You should Wear This top: {randomTop.Color} {randomTop.HasPattern} {randomTop.Category} {randomTop.SleeveLength} {randomTop.Fit} {randomTop.Length} {randomTop.Type}");
+    Top randomT = TopsList[random.Next(TopsList.Count)];
+    string hasPatternT = randomT.HasPattern ? "Yes" : "No";
+    Top topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+
+
+
+    //Get a random bottom
+    Random randomBottom = new Random();
+    Bottom randomB = BottomsList[random.Next(BottomsList.Count)];
+    string hasPatternB = randomB.HasPattern ? "Yes" : "No";
+    Bottom bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+    Console.WriteLine($"You should Wear This top: {topForOutfit} with this bottom: {bottomForOutfit}");
+
+    Console.WriteLine($"You should Wear This top: {randomB.Color} {randomB.HasPattern} {randomB.Category} {randomB.Fit} {randomB.Length} {randomB.Type}");
+
+
+
 }
 
 
