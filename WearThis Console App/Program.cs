@@ -48,7 +48,7 @@ while (runProgram)
 DisplayMenu();
     int menuChoice = -1;
     //displaying the menue (view closet or add clothing)
-    while (menuChoice <= -1 || menuChoice >= 3)
+    while (menuChoice < 1 || menuChoice > 4)
     {
         while (int.TryParse(Console.ReadLine(), out menuChoice) == false)
         {
@@ -72,21 +72,16 @@ DisplayMenu();
         addClothing();
         continue;
     }
-    else if (menuChoice == 3) //add clothing
+
+    else if (menuChoice == 3)
     {
-        addClothing();
+        Console.WriteLine("you picked 3");
+        //Top randomTop = new Top ("Red", true, "Business", "Cap", "Loose", "Medium", "Blouse");
+        //Console.WriteLine($"You should Wear This top: {randomTop.Color} {randomTop.HasPattern} {randomTop.Category} {randomTop.SleeveLength} {randomTop.Fit} {randomTop.Length} {randomTop.Type}");
+
+        //getOutfit(TopsList);
         continue;
     }
-
-    //else if (menuChoice == 3)
-    //{
-    //    Console.WriteLine("you picked 3");
-    //    //Top randomTop = new Top ("Red", true, "Business", "Cap", "Loose", "Medium", "Blouse");
-    //    //Console.WriteLine($"You should Wear This top: {randomTop.Color} {randomTop.HasPattern} {randomTop.Category} {randomTop.SleeveLength} {randomTop.Fit} {randomTop.Length} {randomTop.Type}");
-
-    //    //getOutfit(TopsList);
-    //    continue;
-    //}
     else if (menuChoice == 4) //quit
     {
         Console.WriteLine("Bye!");
