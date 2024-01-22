@@ -76,10 +76,8 @@ DisplayMenu();
     else if (menuChoice == 3)
     {
         Console.WriteLine("you picked 3");
-        //Top randomTop = new Top ("Red", true, "Business", "Cap", "Loose", "Medium", "Blouse");
-        //Console.WriteLine($"You should Wear This top: {randomTop.Color} {randomTop.HasPattern} {randomTop.Category} {randomTop.SleeveLength} {randomTop.Fit} {randomTop.Length} {randomTop.Type}");
 
-        //getOutfit(TopsList);
+        getOutfit(TopsList);
         continue;
     }
     else if (menuChoice == 4) //quit
