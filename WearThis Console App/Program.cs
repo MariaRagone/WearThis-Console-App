@@ -6,9 +6,13 @@ using System.ComponentModel.DataAnnotations;
 
 //TO DO: 
 //add database
-//generate a random bottom
+//add photos
+//Save the user perferences: such as work atire (business, casual, dressy, or business casual)
 //formatting the printing for the GetOutfit()
 //create some fashion rules
+//create some questions for the GetOutfit() like:
+        //"What is the weather outside? Cold/Hot" then only give outfits that work for that weather, 
+        //"Do you need a casual, business casual, dressy, or business ? or What is the occasion? Hang out, Work, Party, 
 
 List<Top> TopsList = new List<Top>()
 {
