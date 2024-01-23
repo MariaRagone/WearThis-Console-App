@@ -162,8 +162,36 @@ static List<Top> addTop(List<Top> originalList)
     DisplayTops(originalList);
     return originalList;
 }
+static void AskUserTheirDressCode()
+{
+    string dressCode = "";
+    Console.WriteLine("What is the dressCodeAnswer at work? Business, Business Casual, Casual, or Dressy?");
+    string dressCodeAnswer = Console.ReadLine().ToLower().Trim();
+    if (dressCodeAnswer == "business" || dressCodeAnswer == "b" || dressCodeAnswer == "bus" || dressCodeAnswer == "biz")
+    {
+        dressCode = "business";
+    }
+    else if (dressCodeAnswer == "business casual" || dressCodeAnswer == "bc")
+    {
+        dressCode = "business casual";
 
- void addClothing()
+    }
+    else if (dressCodeAnswer == "casual" || dressCodeAnswer == "c" || dressCodeAnswer == "cas")
+    {
+        dressCode = "casual";
+
+    }
+    else if (dressCodeAnswer == "dressy" || dressCodeAnswer == "d" || dressCodeAnswer == "dressy" || dressCodeAnswer == "dress")
+    {
+        dressCode = "dressy";
+
+    }
+
+
+}
+
+
+void addClothing()
 {
     Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
     int clothingChoice = -1;
