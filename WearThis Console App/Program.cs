@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Reflection;
 using System.Drawing;
 using System.ComponentModel.DataAnnotations;
+using System;
 
 //TO DO: 
 //add database
@@ -11,8 +12,10 @@ using System.ComponentModel.DataAnnotations;
 //formatting the printing for the GetOutfit()
 //create some fashion rules
 //create some questions for the GetOutfit() like:
-        //"What is the weather outside? Cold/Hot" then only give outfits that work for that weather, 
-        //"Do you need a casual, business casual, dressy, or business ? or What is the occasion? Hang out, Work, Party, 
+//"What is the weather outside? Cold/Hot" then only give outfits that work for that weather, 
+//"Do you need a casual, business casual, dressy, or business ? or What is the occasion? Hang out, Work, Party, 
+string dressCode = "";
+
 
 List<Top> TopsList = new List<Top>()
 {
@@ -51,6 +54,7 @@ List<Bottom> BottomsList = new List<Bottom>()
 };
 //welcome user
 Console.WriteLine("Welcome to Wear This! I will help you decide what to wear today using the clothing you already own.");
+AskUserTheirDressCode(dressCode);
 //loop the program
 bool runProgram = true;
 while (runProgram)
@@ -87,7 +91,7 @@ DisplayMenu();
     {
         Console.WriteLine("you picked 3");
 
-        getOutfit(TopsList, BottomsList);
+        getOutfit(dressCode, TopsList, BottomsList);
         continue;
     }
     else if (menuChoice == 4) //quit
@@ -162,9 +166,8 @@ static List<Top> addTop(List<Top> originalList)
     DisplayTops(originalList);
     return originalList;
 }
-static void AskUserTheirDressCode()
+static void AskUserTheirDressCode(string dressCode)
 {
-    string dressCode = "";
     Console.WriteLine("What is the dressCodeAnswer at work? Business, Business Casual, Casual, or Dressy?");
     string dressCodeAnswer = Console.ReadLine().ToLower().Trim();
     if (dressCodeAnswer == "business" || dressCodeAnswer == "b" || dressCodeAnswer == "bus" || dressCodeAnswer == "biz")
@@ -211,33 +214,62 @@ void addClothing()
     }
 }
 
-//THIS METHOD IS NOT WORKING YET.
-static void getOutfit(List<Top> TopsList, List<Bottom> BottomsList)
+static void getOutfit(string dressCode, List<Top> TopsList, List<Bottom> BottomsList)
 {
+    Top topForOutfit = null;
+    Bottom bottomForOutfit = null; 
     if (TopsList.Count == 0 || BottomsList.Count == 0)
     {
         Console.WriteLine("No tops available.");
         return;
     }
-    //Get a random top
-    Random random = new Random();
-    Top randomT = TopsList[random.Next(TopsList.Count)];
-    string hasPatternT = randomT.HasPattern ? "Yes" : "No";
-    Top topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+    if (dressCode == "business")
+    {
+        //Get a random top that is business
+        Random random = new Random();
+        Top randomT = TopsList.Where(x => x.Category == "business").ElementAt(random.Next(TopsList.Count)); 
+        string hasPatternT = randomT.HasPattern ? "Yes" : "No";
+        topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+    }
+    else if (dressCode == "business casual")
+    {
+        //Get a random top that is business casual
+        Random random = new Random();
+        Top randomT = TopsList.Where(x => x.Category == "business casual").ElementAt(random.Next(TopsList.Count));
+        string hasPatternT = randomT.HasPattern ? "Yes" : "No";
+        topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+    }
+    else if (dressCode == "casual")
+    {
+        //Get a random top that is business casual
+        Random random = new Random();
+        Top randomT = TopsList.Where(x => x.Category == "casual").ElementAt(random.Next(TopsList.Count));
+        string hasPatternT = randomT.HasPattern ? "Yes" : "No";
+        topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+    }
+    else if (dressCode == "dressy")
+    {
+        //Get a random top that is business casual
+        Random random = new Random();
+        Top randomT = TopsList.Where(x => x.Category == "dressy").ElementAt(random.Next(TopsList.Count));
+        string hasPatternT = randomT.HasPattern ? "Yes" : "No";
+        topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+    }
+    else
+    {
+        Console.WriteLine($"There are no tops that match your job's {dressCode} dress code.");
+    }
 
 
 
     //Get a random bottom
+
     Random randomBottom = new Random();
-    Bottom randomB = BottomsList[random.Next(BottomsList.Count)];
+    Bottom randomB = BottomsList.Where(x => x.Category == "dressy").ElementAt(randomBottom.Next(BottomsList.Count));
     string hasPatternB = randomB.HasPattern ? "Yes" : "No";
-    Bottom bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+    bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+    
     Console.WriteLine($"You should Wear This top: {topForOutfit} with this bottom: {bottomForOutfit}");
-
-    Console.WriteLine($"You should Wear This top: {randomB.Color} {randomB.HasPattern} {randomB.Category} {randomB.Fit} {randomB.Length} {randomB.Type}");
-
-
-
 }
 
 
