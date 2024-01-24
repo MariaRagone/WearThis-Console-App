@@ -38,7 +38,7 @@ List<Bottom> BottomsList = new List<Bottom>()
     new Bottom("Red", true, "Dressy", "Skinny", "Long", "Pants"),
     new Bottom("Red", true, "Business", "Shift", "Loose", "Dress"),
     new Bottom("White", false, "Business Casual", "Boot Cut", "Long", "Jeans"),
-    new Bottom("Pink", true, "Casual", "Boot Cut", "A-Line", "Skirt"),
+    new Bottom("Pink", true, "Casual", "A-Line ", "Short", "Skirt"),
     new Bottom("Dark Green", true, "Casual", "A-Line", "Mini", "Skirt"),
     new Bottom("Yellow", false, "Business", "Skinny", "Medium", "Jeans"),
     new Bottom("Orange", true, "Dressy", "Straight", "Long", "Jeans"),
@@ -260,12 +260,17 @@ static void getOutfit(string dressCode, List<Top> TopsList, List<Bottom> Bottoms
     Bottom randomB = filteredBottomsByDressCode[random.Next(filteredBottomsByDressCode.Count)];
 
     //convert the hasPattern true/false to Patterned/Plain for better clarity for the user
-    string hasPatternT = randomT.HasPattern ? "Patterned" : "Plain"; 
-    string hasPatternB = randomB.HasPattern ? "Patterned" : "Plain";
+    //string hasPatternT = randomT.HasPattern ? "Patterned" : "Plain"; 
+    //string hasPatternB = randomB.HasPattern ? "Patterned" : "Plain";
 
     topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
     bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
-Console.WriteLine($"You should Wear This top: {topForOutfit} with this bottom: {bottomForOutfit}");
+    Console.WriteLine($"You should Wear This:");
+
+    Console.WriteLine($"Top: {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
+        $"Bottom: {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
+    Console.WriteLine("You are going to look fabulous!");
+    Console.WriteLine();
 }
 
 

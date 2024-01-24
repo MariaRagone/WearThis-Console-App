@@ -21,7 +21,7 @@ namespace WearThis_Console_App
             : base //relates back to parent constructor, defines what part of the constructor is the parent
             (_color, _hasPattern, _category)
 
-        {//these are the new properties for TOPS
+        {//these are the new properties for BOTTOMS
             Fit = _fit;
             Length = _length;
             Type = _type;
