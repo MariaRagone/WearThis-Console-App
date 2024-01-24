@@ -14,8 +14,6 @@ using System;
 //create some questions for the GetOutfit() like:
 //"What is the weather outside? Cold/Hot" then only give outfits that work for that weather, 
 //"Do you need a casual, business casual, dressy, or business ? or What is the occasion? Hang out, Work, Party, 
-string dressCode = "";
-
 
 List<Top> TopsList = new List<Top>()
 {
@@ -66,7 +64,7 @@ Console.WriteLine($"!BottomsList.Any(x => x.Category == \"business\"): {!Bottoms
 
 //---------------------------------------------------------
 Console.WriteLine("Welcome to Wear This! I will help you decide what to wear today using the clothing you already own.");
-Console.WriteLine(AskUserTheirDressCode());
+string dressCode = AskUserTheirDressCode();//the dresscode is not getting passed into the get outfit method
 //loop the program
 bool runProgram = true;
 while (runProgram)
