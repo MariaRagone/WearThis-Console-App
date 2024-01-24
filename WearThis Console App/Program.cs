@@ -179,22 +179,22 @@ static string AskUserTheirDressCode()
     string dressCode = Console.ReadLine().ToLower().Trim();
     if (dressCode == "business" || dressCode == "b" || dressCode == "bus" || dressCode == "biz")
     {
-        dressCode = "business";
+        dressCode = "Business";
         return dressCode;
     }
     else if (dressCode == "business casual" || dressCode == "bc")
     {
-        dressCode = "business casual";
+        dressCode = "Business Casual";
         return dressCode;
     }
     else if (dressCode == "casual" || dressCode == "c" || dressCode == "cas")
     {
-        dressCode = "casual";
+        dressCode = "Casual";
         return dressCode;
     }
     else if (dressCode == "dressy" || dressCode == "d" || dressCode == "dressy" || dressCode == "dress")
     {
-        dressCode = "dressy";
+        dressCode = "Dressy";
         return dressCode;
     }
     else
