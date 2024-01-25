@@ -36,34 +36,37 @@ List<Top> TopsList = new List<Top>()
 List<Bottom> BottomsList = new List<Bottom>()
 {
     new Bottom("Red", true, "Dressy", "Skinny", "Long", "Pants"),
-    new Bottom("Red", true, "Business", "Shift", "Loose", "Dress"),
+    new Bottom("Red", true, "Business", "Shift", "Long", "Dress"),
     new Bottom("White", false, "Business Casual", "Boot Cut", "Long", "Jeans"),
     new Bottom("Pink", true, "Casual", "A-Line ", "Short", "Skirt"),
     new Bottom("Dark Green", true, "Casual", "A-Line", "Mini", "Skirt"),
-    new Bottom("Yellow", false, "Business", "Skinny", "Medium", "Jeans"),
+    new Bottom("Yellow", false, "Business Casual", "Skinny", "Medium", "Jeans"),
     new Bottom("Orange", true, "Dressy", "Straight", "Long", "Jeans"),
     new Bottom("Blue", false, "Business Casual", "Straight", "Short", "Skirt"),
     new Bottom("Green", true, "Business", "Skinny", "Mini", "Jeans"),
     new Bottom("Red", true, "Dressy", "Boot", "Ankle", "Pants"),
     new Bottom("Teal", false, "Business Casual", "Straight", "Medium", "Shorts"),
-    new Bottom("Black", false, "Casual", "Shift", "Long", "Dress"),
-    new Bottom("Brown", true, "Dressy", "Short", "Loose", "Shorts"),
+    new Bottom("Black", false, "Casual",  "Shift", "Long", "Dress"),
+    new Bottom("Brown", true, "Dressy", "Loose", "Short",  "Shorts"),
     new Bottom("Salmon", false, "Casual", "Skinny", "Ankle", "Jeans"),
 };
 //welcome user
 
 //tests
 //-----------------------------------------------------------------
-Console.WriteLine($"TopsList Count: {TopsList.Count}");
-Console.WriteLine($"BottomsList Count: {BottomsList.Count}");
-Console.WriteLine($"Business Tops Count: {TopsList.Count(x => x.Category == "business")}");
-Console.WriteLine($"Business Bottoms Count: {BottomsList.Count(x => x.Category == "business")}");
-Console.WriteLine($"!TopsList.Any(x => x.Category == \"business\"): {!TopsList.Any(x => x.Category == "business")}");
-Console.WriteLine($"!BottomsList.Any(x => x.Category == \"business\"): {!BottomsList.Any(x => x.Category == "business")}");
+//Console.WriteLine($"TopsList Count: {TopsList.Count}");
+//Console.WriteLine($"BottomsList Count: {BottomsList.Count}");
+//Console.WriteLine($"Business Tops Count: {TopsList.Count(x => x.Category == "business")}");
+//Console.WriteLine($"Business Bottoms Count: {BottomsList.Count(x => x.Category == "business")}");
+//Console.WriteLine($"!TopsList.Any(x => x.Category == \"business\"): {!TopsList.Any(x => x.Category == "business")}");
+//Console.WriteLine($"!BottomsList.Any(x => x.Category == \"business\"): {!BottomsList.Any(x => x.Category == "business")}");
 
 
 //---------------------------------------------------------
 Console.WriteLine("Welcome to Wear This! I will help you decide what to wear today using the clothing you already own.");
+Console.WriteLine("First let's set up your user profile!");
+Console.WriteLine("What is your name?");
+string userName = Console.ReadLine();
 string dressCode = AskUserTheirDressCode();//the dresscode is not getting passed into the get outfit method
 //loop the program
 bool runProgram = true;
@@ -99,7 +102,8 @@ while (runProgram)
     else if (menuChoice == 3)
     {
         Console.WriteLine($"Your work dress code is: {dressCode}");
-        getOutfit(dressCode, TopsList, BottomsList);
+        AskUserForOutfitOccasion(dressCode);
+        getWorkOutfit(dressCode, TopsList, BottomsList);
         continue;
     }
     else if (menuChoice == 4) //quit
@@ -175,6 +179,7 @@ static List<Top> addTop(List<Top> originalList)
 }
 static string AskUserTheirDressCode()
 {
+   
     Console.WriteLine("What is the dressCode at work? Business, Business Casual, Casual, or Dressy?");
     string dressCode = Console.ReadLine().ToLower().Trim();
     if (dressCode == "business" || dressCode == "b" || dressCode == "bus" || dressCode == "biz")
@@ -202,6 +207,29 @@ static string AskUserTheirDressCode()
         return "there is no dress code";
     }
 }
+static string AskUserForOutfitOccasion(string dressCode)
+{
+    Console.WriteLine("What is the occasion? Work, Casual, or Formal?");
+    string occasion = Console.ReadLine().Trim().ToLower();
+    if (occasion == "work" || occasion == "w")
+    {
+        occasion = dressCode;
+        return dressCode;
+    }
+    else if (occasion == "casual" || occasion == "c")
+    {
+        occasion = "casual";
+        return occasion;
+    }
+    else if (occasion == "formal" || occasion == "f" || occasion == "dressy" || occasion == "d")
+    {
+        occasion = "dressy";
+        return occasion;
+    }
+
+
+    return occasion;
+}
 void addClothing()
 {
     Console.WriteLine("What type of clothing would you like to add? 1. Top, 2. Bottom");
@@ -222,7 +250,7 @@ void addClothing()
     }
 }
 
-static void getOutfit(string dressCode, List<Top> TopsList, List<Bottom> BottomsList)
+static void getWorkOutfit(string dressCode, List<Top> TopsList, List<Bottom> BottomsList)
 {
     //declare new variables for a new top and a new bottom for the outfit. 
     Top topForOutfit = null;
@@ -267,8 +295,8 @@ static void getOutfit(string dressCode, List<Top> TopsList, List<Bottom> Bottoms
     bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
     Console.WriteLine($"You should Wear This:");
 
-    Console.WriteLine($"Top: {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
-        $"Bottom: {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
+    Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
+        $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
     Console.WriteLine("You are going to look fabulous!");
     Console.WriteLine();
 }
