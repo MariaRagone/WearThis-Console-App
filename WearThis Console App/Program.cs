@@ -179,56 +179,83 @@ static List<Top> addTop(List<Top> originalList)
 }
 static string AskUserTheirDressCode()
 {
-   
+   bool repeatDressCodeQuestion = true;
+    while (repeatDressCodeQuestion)
+    {
     Console.WriteLine("What is the dressCode at work? Business, Business Casual, Casual, or Dressy?");
     string dressCode = Console.ReadLine().ToLower().Trim();
     if (dressCode == "business" || dressCode == "b" || dressCode == "bus" || dressCode == "biz")
     {
-        dressCode = "Business";
+            repeatDressCodeQuestion = false;
+
+            dressCode = "Business";
         return dressCode;
     }
     else if (dressCode == "business casual" || dressCode == "bc")
     {
-        dressCode = "Business Casual";
+            repeatDressCodeQuestion = false;
+
+            dressCode = "Business Casual";
         return dressCode;
     }
     else if (dressCode == "casual" || dressCode == "c" || dressCode == "cas")
     {
-        dressCode = "Casual";
+            repeatDressCodeQuestion = false;
+
+            dressCode = "Casual";
         return dressCode;
     }
     else if (dressCode == "dressy" || dressCode == "d" || dressCode == "dressy" || dressCode == "dress")
     {
-        dressCode = "Dressy";
+            repeatDressCodeQuestion = false;
+
+            dressCode = "Dressy";
         return dressCode;
     }
     else
     {
-        return "there is no dress code";
+            repeatDressCodeQuestion = true;
+            Console.WriteLine("Please choose from Business, Business Casual, Casual, or Dressy");
+        }
     }
+
 }
 static string AskUserForOutfitOccasion(string dressCode)
 {
-    Console.WriteLine("What is the occasion? Work, Casual, or Formal?");
-    string occasion = Console.ReadLine().Trim().ToLower();
-    if (occasion == "work" || occasion == "w")
+    bool repeatOccasionQuestion = true;
+    while (true)
     {
-        occasion = dressCode;
-        return dressCode;
-    }
-    else if (occasion == "casual" || occasion == "c")
-    {
-        occasion = "casual";
+
+        Console.WriteLine("What is the occasion? Work, Casual, or Formal?");
+        string occasion = Console.ReadLine().Trim().ToLower();
+        if (occasion == "work" || occasion == "w")
+        {
+            occasion = dressCode;
+            repeatOccasionQuestion = false;
+            return dressCode;
+        }
+        else if (occasion == "casual" || occasion == "c")
+        {
+            occasion = "casual";
+            repeatOccasionQuestion = false;
+
+            return occasion;
+        }
+        else if (occasion == "formal" || occasion == "f" || occasion == "dressy" || occasion == "d")
+        {
+            occasion = "dressy";
+            repeatOccasionQuestion = false;
+
+            return occasion;
+        }
+        else
+        {
+            Console.WriteLine("Please choose from Work, Casual, or Formal");
+            repeatOccasionQuestion = true;
+        }
+
         return occasion;
     }
-    else if (occasion == "formal" || occasion == "f" || occasion == "dressy" || occasion == "d")
-    {
-        occasion = "dressy";
-        return occasion;
-    }
-
-
-    return occasion;
 }
 void addClothing()
 {
