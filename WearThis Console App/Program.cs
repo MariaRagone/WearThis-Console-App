@@ -67,6 +67,7 @@ Console.WriteLine("Welcome to Wear This! I will help you decide what to wear tod
 Console.WriteLine("First let's set up your user profile!");
 Console.WriteLine("What is your name?");
 string userName = Console.ReadLine();
+
 string dressCode = AskUserTheirDressCode();//the dresscode is not getting passed into the get outfit method
 //loop the program
 bool runProgram = true;
@@ -179,51 +180,52 @@ static List<Top> addTop(List<Top> originalList)
 }
 static string AskUserTheirDressCode()
 {
-   bool repeatDressCodeQuestion = true;
+    bool repeatDressCodeQuestion = true;
     while (repeatDressCodeQuestion)
     {
-    Console.WriteLine("What is the dressCode at work? Business, Business Casual, Casual, or Dressy?");
-    string dressCode = Console.ReadLine().ToLower().Trim();
-    if (dressCode == "business" || dressCode == "b" || dressCode == "bus" || dressCode == "biz")
-    {
+        Console.WriteLine("What is the dressCode at work? Business, Business Casual, Casual, or Dressy?");
+        string dressCode = Console.ReadLine().ToLower().Trim();
+        if (dressCode == "business" || dressCode == "b" || dressCode == "bus" || dressCode == "biz")
+        {
             repeatDressCodeQuestion = false;
 
             dressCode = "Business";
-        return dressCode;
-    }
-    else if (dressCode == "business casual" || dressCode == "bc")
-    {
+            return dressCode;
+        }
+        else if (dressCode == "business casual" || dressCode == "bc")
+        {
             repeatDressCodeQuestion = false;
 
             dressCode = "Business Casual";
-        return dressCode;
-    }
-    else if (dressCode == "casual" || dressCode == "c" || dressCode == "cas")
-    {
+            return dressCode;
+        }
+        else if (dressCode == "casual" || dressCode == "c" || dressCode == "cas")
+        {
             repeatDressCodeQuestion = false;
 
             dressCode = "Casual";
-        return dressCode;
-    }
-    else if (dressCode == "dressy" || dressCode == "d" || dressCode == "dressy" || dressCode == "dress")
-    {
+            return dressCode;
+        }
+        else if (dressCode == "dressy" || dressCode == "d" || dressCode == "dressy" || dressCode == "dress")
+        {
             repeatDressCodeQuestion = false;
 
             dressCode = "Dressy";
-        return dressCode;
-    }
-    else
-    {
+            return dressCode;
+        }
+        else
+        {
             repeatDressCodeQuestion = true;
-            Console.WriteLine("Please choose from Business, Business Casual, Casual, or Dressy");
+            return "Please choose from Business, Business Casual, Casual, or Dressy";
         }
     }
+    return "";
 
 }
-static string AskUserForOutfitOccasion(string dressCode)
+static string AskUserForOutfitOccasion(string dressCode) //this is not working. it is only giving you an outfit for your work dress code
 {
     bool repeatOccasionQuestion = true;
-    while (true)
+    while (repeatOccasionQuestion)
     {
 
         Console.WriteLine("What is the occasion? Work, Casual, or Formal?");
@@ -253,7 +255,6 @@ static string AskUserForOutfitOccasion(string dressCode)
             Console.WriteLine("Please choose from Work, Casual, or Formal");
             repeatOccasionQuestion = true;
         }
-
         return occasion;
     }
 }
