@@ -68,8 +68,9 @@ Console.WriteLine("First let's set up your user profile!");
 Console.WriteLine("What is your name?");
 string userName = Console.ReadLine();
 
-string dressCode = AskUserTheirDressCode();//the dresscode is not getting passed into the get outfit method
-//loop the program
+string dressCode = AskUserTheirDressCode();
+string occasion = "";
+    //loop the program
 bool runProgram = true;
 while (runProgram)
 {
@@ -103,8 +104,15 @@ while (runProgram)
     else if (menuChoice == 3)
     {
         Console.WriteLine($"Your work dress code is: {dressCode}");
-        AskUserForOutfitOccasion(dressCode);
+        occasion = AskUserForOutfitOccasion(dressCode);
+        if (occasion == "work")
+        {
         getWorkOutfit(dressCode, TopsList, BottomsList);
+        }
+        else
+        {
+            getOutfit(occasion, TopsList, BottomsList);
+        }
         continue;
     }
     else if (menuChoice == 4) //quit
@@ -222,7 +230,7 @@ static string AskUserTheirDressCode()
     return "";
 
 }
-static string AskUserForOutfitOccasion(string dressCode) //this is not working. it is only giving you an outfit for your work dress code
+static string AskUserForOutfitOccasion(string dressCode) 
 {
     bool repeatOccasionQuestion = true;
     while (repeatOccasionQuestion)
@@ -232,7 +240,6 @@ static string AskUserForOutfitOccasion(string dressCode) //this is not working. 
         string occasion = Console.ReadLine().Trim().ToLower();
         if (occasion == "work" || occasion == "w")
         {
-            occasion = dressCode;
             repeatOccasionQuestion = false;
             return dressCode;
         }
@@ -252,11 +259,11 @@ static string AskUserForOutfitOccasion(string dressCode) //this is not working. 
         }
         else
         {
-            Console.WriteLine("Please choose from Work, Casual, or Formal");
+            Console.WriteLine( "Please choose from Work, Casual, or Formal");
             repeatOccasionQuestion = true;
         }
-        return occasion;
     }
+    return string.Empty; 
 }
 void addClothing()
 {
@@ -330,4 +337,53 @@ static void getWorkOutfit(string dressCode, List<Top> TopsList, List<Bottom> Bot
 }
 
 
+static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsList)
+{
+    //declare new variables for a new top and a new bottom for the outfit. 
+    Top topForOutfit = null;
+    Bottom bottomForOutfit = null;
+    Random random = new Random();
 
+    //tell the user there are no tops or bottoms available at all
+    if (TopsList.Count == 0)
+    {
+        Console.WriteLine($"You don't have any tops in your closet. Please add some!");
+        return;
+    }
+    else if (BottomsList.Count == 0)
+    {
+        Console.WriteLine($"You don't have any bottoms in your closet. Please add some!");
+        return;
+    }
+    //filter tops and bottoms by the specified dress code
+    var filteredTopsByDressCode = TopsList.Where(x => x.Category == occasion).ToList();
+    var filteredBottomsByDressCode = BottomsList.Where(x => x.Category == occasion).ToList();
+
+    //tell the user there are no tops or bottoms available in their work dress code
+    if (filteredTopsByDressCode.Count == 0)
+    {
+        Console.WriteLine($"No tops available for your {occasion} occasion. Add some {occasion} tops!");
+        return;
+    }
+    else if (filteredBottomsByDressCode.Count == 0)
+    {
+        Console.WriteLine($"No bottoms available for your {occasion} occasion. Add some {occasion} bottoms!");
+        return;
+    }
+
+    Top randomT = filteredTopsByDressCode[random.Next(filteredTopsByDressCode.Count)];
+    Bottom randomB = filteredBottomsByDressCode[random.Next(filteredBottomsByDressCode.Count)];
+
+    //convert the hasPattern true/false to Patterned/Plain for better clarity for the user
+    //string hasPatternT = randomT.HasPattern ? "Patterned" : "Plain"; 
+    //string hasPatternB = randomB.HasPattern ? "Patterned" : "Plain";
+
+    topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+    bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+    Console.WriteLine($"You should Wear This:");
+
+    Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
+        $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
+    Console.WriteLine("You are going to look fabulous!");
+    Console.WriteLine();
+}
