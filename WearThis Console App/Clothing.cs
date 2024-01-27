@@ -11,7 +11,7 @@ namespace WearThis_Console_App
         //properties
         public string Color { get; set; }
         public bool HasPattern { get; set; }
-        public string Category { get; set; } //casual, dressy, business casual, business
+        public string Category { get; set; } //casual, dressy, business casual, business, party
 
         //contstructor
         //assigns all of the properties

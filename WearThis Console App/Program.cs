@@ -31,6 +31,11 @@ List<Top> TopsList = new List<Top>()
     new Top("Black", false, "Casual", "3/4", "Fitted", "Long", "Sweater"),
     new Top("Brown", true, "Dressy", "Short", "Loose", "Long", "Blouse"),
     new Top("Salmon", false, "Casual", "Short", "Loose", "Long", "T-Shirt"),
+        new Top("Blue", false, "Party", "Cap", "Fitted", "Short", "Cardigan"),
+    new Top("Green", true, "Party", "Tank", "Loose", "Long", "Blouse"),
+    new Top("Red", true, "Party", "Cap", "Loose", "Long", "Collared"),
+    new Top("Teal", false, "Party", "Long", "Loose", "Medium", "Blouse"),
+
 };
 
 List<Bottom> BottomsList = new List<Bottom>()
@@ -49,6 +54,12 @@ List<Bottom> BottomsList = new List<Bottom>()
     new Bottom("Black", false, "Casual",  "Shift", "Long", "Dress"),
     new Bottom("Brown", true, "Dressy", "Loose", "Short",  "Shorts"),
     new Bottom("Salmon", false, "Casual", "Skinny", "Ankle", "Jeans"),
+        new Bottom("Red", true, "Party", "Skinny", "Long", "Pants"),
+    new Bottom("Red", true, "Party", "Shift", "Long", "Dress"),
+    new Bottom("White", false, "Party", "Boot Cut", "Long", "Jeans"),
+    new Bottom("Pink", true, "Party", "A-Line ", "Short", "Skirt"),
+    new Bottom("Dark Green", true, "Party", "A-Line", "Mini", "Skirt"),
+
 };
 
 //tests
@@ -237,16 +248,23 @@ static string AskUserForOutfitOccasion(string dressCode)
     while (repeatOccasionQuestion)
     {
 
-        Console.WriteLine("What is the occasion? Work, Casual, or Formal?");
+        Console.WriteLine("What is the occasion? Work, Hang Out, Party, or Formal?");
         string occasion = Console.ReadLine().Trim().ToLower();
         if (occasion == "work" || occasion == "w")
         {
             repeatOccasionQuestion = false;
             return dressCode;
         }
-        else if (occasion == "casual" || occasion == "c")
+        else if (occasion == "hang out" || occasion == "hangout" || occasion == "casual" || occasion == "c" || occasion == "h" || occasion == "ho")
         {
             occasion = "Casual";
+            repeatOccasionQuestion = false;
+
+            return occasion;
+        }
+        else if (occasion == "party" || occasion == "p")
+        {
+            occasion = "Party";
             repeatOccasionQuestion = false;
 
             return occasion;
@@ -284,7 +302,7 @@ void addClothing()
     {
         addTop(TopsList);
     }
-}
+} //this method does  not perminantly add clothing
 
 static void getWorkOutfit(string dressCode, List<Top> TopsList, List<Bottom> BottomsList)
 {
@@ -337,7 +355,6 @@ static void getWorkOutfit(string dressCode, List<Top> TopsList, List<Bottom> Bot
     Console.WriteLine();
 }
 
-
 static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsList)
 {
     //declare new variables for a new top and a new bottom for the outfit. 
@@ -384,6 +401,22 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
 
     Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
         $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
-    Console.WriteLine("You are going to look fabulous!");
+   
+    if (occasion == "Party")
+    {
+        Console.WriteLine("Get ready to shine – your outfit is party perfection.");
+    }
+    else if (occasion == "Dressy")
+    {
+        Console.WriteLine("Dressed to impress! You'll turn heads for sure.");
+    }
+    else if (occasion == "Casual")
+    { 
+        Console.WriteLine("Perfectly laid-back and stylish. You'll be comfortable and fashionable."); 
+    }
+    else
+    {
+        Console.WriteLine("Confident and stylish – you'll conquer the workday.");
+    }
     Console.WriteLine();
 }
