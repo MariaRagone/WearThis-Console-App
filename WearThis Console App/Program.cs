@@ -396,7 +396,7 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
     //string hasPatternB = randomB.HasPattern ? "Patterned" : "Plain";
 
     //if the bottom is a dress then do not assign a top!
-    if (bottomForOutfit != null && bottomForOutfit.Type == "Dress")
+    if (randomB.Type == "Dress")
     {
         bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
         Console.WriteLine($"You should Wear This:");
