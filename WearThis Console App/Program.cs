@@ -8,57 +8,57 @@ using System;
 //TO DO: 
 //add database
 //add photos
-//Save the user perferences: such as work atire (business, casual, dressy, or business casual)
+//Save the user perferences: such as work atire (business, casual, dressy, orbusiness casual)
 //formatting the printing for the GetOutfit()
 //create some fashion rules
 //create some questions for the GetOutfit() like:
 //"What is the weather outside? Cold/Hot" then only give outfits that work for that weather, 
-//"Do you need a casual, business casual, dressy, or business ? or What is the occasion? Hang out, Work, Party, 
+//"Do you need a casual,business casual, dressy, or business ? or What is the occasion? Hang out, work, party, 
 
 List<Top> TopsList = new List<Top>()
 {
-    new Top("Red", true, "Dressy", "Cap", "Fitted", "Short", "Blouse"),
-    new Top("Red", true, "Business", "Cap", "Loose", "Medium", "Blouse"),
-    new Top("White", false, "Business Casual", "Cap", "Loose", "Long", "Blouse"),
-    new Top("Pink", true, "Casual", "Cap", "Fitted", "Long", "T-Shirt"),
-    new Top("Dark Green", true, "Casual", "Strapless", "Loose", "Long", "Tank"),
-    new Top("Yellow", false, "Business", "Strapless", "Loose", "Long", "Blouse"),
-    new Top("Orange", true, "Dressy", "Short", "Loose", "Long", "Blouse"),
-    new Top("Blue", false, "Business Casual", "Cap", "Fitted", "Short", "Cardigan"),
-    new Top("Green", true, "Business", "Tank", "Loose", "Long", "Blouse"),
-    new Top("Red", true, "Dressy", "Cap", "Loose", "Long", "Collared"),
-    new Top("Teal", false, "Business Casual", "Long", "Loose", "Medium", "Blouse"),
-    new Top("Black", false, "Casual", "3/4", "Fitted", "Long", "Sweater"),
-    new Top("Brown", true, "Dressy", "Short", "Loose", "Long", "Blouse"),
-    new Top("Salmon", false, "Casual", "Short", "Loose", "Long", "T-Shirt"),
-        new Top("Blue", false, "Party", "Cap", "Fitted", "Short", "Cardigan"),
-    new Top("Green", true, "Party", "Tank", "Loose", "Long", "Blouse"),
-    new Top("Red", true, "Party", "Cap", "Loose", "Long", "Collared"),
-    new Top("Teal", false, "Party", "Long", "Loose", "Medium", "Blouse"),
+    new Top("red", true, "dressy", "cap", "fitted", "short", "blouse"),
+    new Top("red", true, "business", "cap", "loose", "medium", "blouse"),
+    new Top("white", false, "business casual", "cap", "loose", "long", "blouse"),
+    new Top("pink", true, "casual", "cap", "fitted", "long", "t-shirt"),
+    new Top("dark green", true, "casual", "strapless", "loose", "long", "tank"),
+    new Top("yellow", false, "business", "strapless", "loose", "long", "blouse"),
+    new Top("orange", true, "dressy", "short", "loose", "long", "blouse"),
+    new Top("Blue", false, "business casual", "cap", "fitted", "short", "cardigan"),
+    new Top("green", true, "business", "tank", "loose", "long", "blouse"),
+    new Top("red", true, "dressy", "cap", "loose", "long", "collared"),
+    new Top("teal", false, "business casual", "long", "loose", "medium", "blouse"),
+    new Top("black", false, "casual", "3/4", "fitted", "long", "sweater"),
+    new Top("Brown", true, "dressy", "short", "loose", "long", "blouse"),
+    new Top("salmon", false, "casual", "short", "loose", "long", "t-shirt"),
+        new Top("Blue", false, "party", "cap", "fitted", "short", "cardigan"),
+    new Top("green", true, "party", "tank", "loose", "long", "blouse"),
+    new Top("red", true, "party", "cap", "loose", "long", "collared"),
+    new Top("teal", false, "party", "long", "loose", "medium", "blouse"),
 
 };
 
 List<Bottom> BottomsList = new List<Bottom>()
 {
-    new Bottom("Red", true, "Dressy", "Skinny", "Long", "Dress"),
-    new Bottom("Red", true, "Business", "Shift", "Long", "Dress"),
-    new Bottom("White", false, "Business Casual", "Boot Cut", "Long", "Jeans"),
-    new Bottom("Pink", true, "Casual", "A-Line ", "Short", "Skirt"),
-    new Bottom("Dark Green", true, "Casual", "A-Line", "Mini", "Skirt"),
-    new Bottom("Yellow", false, "Business Casual", "Skinny", "Medium", "Jeans"),
-    new Bottom("Orange", true, "Dressy", "Straight", "Long", "Jeans"),
-    new Bottom("Blue", false, "Business Casual", "Straight", "Short", "Skirt"),
-    new Bottom("Green", true, "Business", "Skinny", "Mini", "Jeans"),
-    new Bottom("Red", true, "Dressy", "Boot", "Ankle", "Pants"),
-    new Bottom("Teal", false, "Business Casual", "Straight", "Medium", "Shorts"),
-    new Bottom("Black", false, "Casual",  "Shift", "Long", "Dress"),
-    new Bottom("Brown", true, "Dressy", "Loose", "Short",  "Dress"),
-    new Bottom("Salmon", false, "Casual", "Skinny", "Ankle", "Jeans"),
-        new Bottom("Red", true, "Party", "Skinny", "Long", "Pants"),
-    new Bottom("Red", true, "Party", "Shift", "Long", "Dress"),
-    new Bottom("White", false, "Party", "Boot Cut", "Long", "Jeans"),
-    new Bottom("Pink", true, "Party", "A-Line ", "Short", "Skirt"),
-    new Bottom("Dark Green", true, "Party", "A-Line", "Mini", "Skirt"),
+    new Bottom("red", true, "dressy", "skinny", "long", "Dress"),
+    new Bottom("red", true, "business", "shift", "long", "Dress"),
+    new Bottom("white", false, "business casual", "boot cut", "long", "jeans"),
+    new Bottom("pink", true, "casual", "a-line ", "short", "skirt"),
+    new Bottom("dark green", true, "casual", "a-line", "mini", "skirt"),
+    new Bottom("yellow", false, "business casual", "skinny", "medium", "jeans"),
+    new Bottom("orange", true, "dressy", "straight", "long", "jeans"),
+    new Bottom("Blue", false, "business casual", "straight", "short", "skirt"),
+    new Bottom("green", true, "business", "skinny", "mini", "jeans"),
+    new Bottom("red", true, "dressy", "Boot", "ankle", "Pants"),
+    new Bottom("teal", false, "business casual", "straight", "medium", "shorts"),
+    new Bottom("black", false, "casual",  "shift", "long", "Dress"),
+    new Bottom("Brown", true, "dressy", "loose", "short",  "Dress"),
+    new Bottom("salmon", false, "casual", "skinny", "ankle", "jeans"),
+        new Bottom("red", true, "party", "skinny", "long", "Pants"),
+    new Bottom("red", true, "party", "shift", "long", "Dress"),
+    new Bottom("white", false, "party", "boot cut", "long", "jeans"),
+    new Bottom("pink", true, "party", "a-line ", "short", "skirt"),
+    new Bottom("dark green", true, "party", "a-line", "mini", "skirt"),
 
 };
 
@@ -66,8 +66,8 @@ List<Bottom> BottomsList = new List<Bottom>()
 //-----------------------------------------------------------------
 //Console.WriteLine($"TopsList Count: {TopsList.Count}");
 //Console.WriteLine($"BottomsList Count: {BottomsList.Count}");
-//Console.WriteLine($"Business Tops Count: {TopsList.Count(x => x.Category == "business")}");
-//Console.WriteLine($"Business Bottoms Count: {BottomsList.Count(x => x.Category == "business")}");
+//Console.WriteLine($"business Tops Count: {TopsList.Count(x => x.Category == "business")}");
+//Console.WriteLine($"business Bottoms Count: {BottomsList.Count(x => x.Category == "business")}");
 //Console.WriteLine($"!TopsList.Any(x => x.Category == \"business\"): {!TopsList.Any(x => x.Category == "business")}");
 //Console.WriteLine($"!BottomsList.Any(x => x.Category == \"business\"): {!BottomsList.Any(x => x.Category == "business")}");
 
@@ -117,7 +117,7 @@ while (runProgram) //loop the program
 
         if (occasion == "work")
         {
-            getWorkOutfit(dressCode, TopsList, BottomsList); //get an outfit for work
+            getworkOutfit(dressCode, TopsList, BottomsList); //get an outfit for work
         }
         else
         {
@@ -203,40 +203,40 @@ static string AskUserTheirDressCode()
     bool repeatDressCodeQuestion = true;
     while (repeatDressCodeQuestion)
     {
-        Console.WriteLine("What is the dressCode at work? Business, Business Casual, Casual, or Dressy?");
+        Console.WriteLine("What is the dressCode at work? business,business casual, casual, or dressy?");
         string dressCode = Console.ReadLine().ToLower().Trim();
         if (dressCode == "business" || dressCode == "b" || dressCode == "bus" || dressCode == "biz")
         {
             repeatDressCodeQuestion = false;
 
-            dressCode = "Business";
+            dressCode = "business";
             return dressCode;
         }
         else if (dressCode == "business casual" || dressCode == "bc")
         {
             repeatDressCodeQuestion = false;
 
-            dressCode = "Business Casual";
+            dressCode = "business casual";
             return dressCode;
         }
         else if (dressCode == "casual" || dressCode == "c" || dressCode == "cas")
         {
             repeatDressCodeQuestion = false;
 
-            dressCode = "Casual";
+            dressCode = "casual";
             return dressCode;
         }
         else if (dressCode == "dressy" || dressCode == "d" || dressCode == "dressy" || dressCode == "dress")
         {
             repeatDressCodeQuestion = false;
 
-            dressCode = "Dressy";
+            dressCode = "dressy";
             return dressCode;
         }
         else
         {
             repeatDressCodeQuestion = true;
-            return "Please choose from Business, Business Casual, Casual, or Dressy";
+            return "Please choose from business,business casual, casual, or dressy";
         }
     }
     return "";
@@ -248,7 +248,7 @@ static string AskUserForOutfitOccasion(string dressCode)
     while (repeatOccasionQuestion)
     {
 
-        Console.WriteLine("What is the occasion? Work, Hang Out, Party, or Formal?");
+        Console.WriteLine("What is the occasion? work, Hang Out, party, or formal?");
         string occasion = Console.ReadLine().Trim().ToLower();
         if (occasion == "work" || occasion == "w")
         {
@@ -257,28 +257,28 @@ static string AskUserForOutfitOccasion(string dressCode)
         }
         else if (occasion == "hang out" || occasion == "hangout" || occasion == "casual" || occasion == "c" || occasion == "h" || occasion == "ho")
         {
-            occasion = "Casual";
+            occasion = "casual";
             repeatOccasionQuestion = false;
 
             return occasion;
         }
         else if (occasion == "party" || occasion == "p")
         {
-            occasion = "Party";
+            occasion = "party";
             repeatOccasionQuestion = false;
 
             return occasion;
         }
         else if (occasion == "formal" || occasion == "f" || occasion == "dressy" || occasion == "d")
         {
-            occasion = "Dressy";
+            occasion = "dressy";
             repeatOccasionQuestion = false;
 
             return occasion;
         }
         else
         {
-            Console.WriteLine("Please choose from Work, Casual, or Formal");
+            Console.WriteLine("Please choose from work, casual, or formal");
             repeatOccasionQuestion = true;
         }
     }
@@ -304,7 +304,7 @@ void addClothing()
     }
 } //this method does  not perminantly add clothing
 
-static void getWorkOutfit(string dressCode, List<Top> TopsList, List<Bottom> BottomsList)
+static void getworkOutfit(string dressCode, List<Top> TopsList, List<Bottom> BottomsList)
 {
     //declare new variables for a new top and a new bottom for the outfit. 
     Top topForOutfit = null;
@@ -401,7 +401,6 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
         bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
         Console.WriteLine($"You should Wear This:");
         Console.WriteLine($"-{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
-
     }
     else
     {
@@ -412,21 +411,116 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
         Console.WriteLine($"You should Wear This:");
         Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
             $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
-
     }
 
+    //if the top is any color (other than black or white) then do not put it with a color other than (black or white)
+    //i.e. if it is a red top then the bottoms should be black or white
+    //if it it a yellow top then the bottoms should be black or white
+    //if it is a black or white top, then the bottoms can be any color
+
+    static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsList)
+    {
+        //declare new variables for a new top and a new bottom for the outfit. 
+        Top topForOutfit = null;
+        Bottom bottomForOutfit = null;
+        Random random = new Random();
+
+        //tell the user there are no tops or bottoms available at all
+        if (TopsList.Count == 0)
+        {
+            Console.WriteLine($"You don't have any tops in your closet. Please add some!");
+            return;
+        }
+        else if (BottomsList.Count == 0)
+        {
+            Console.WriteLine($"You don't have any bottoms in your closet. Please add some!");
+            return;
+        }
+        //filter tops and bottoms by the specified occasion
+        var filteredTopsByOccasion = TopsList.Where(x => x.Category == occasion).ToList();
+        var filteredBottomsByOccasion = BottomsList.Where(x => x.Category == occasion).ToList();
+        //tell the user there are no tops or bottoms available in their occasion
+        if (filteredTopsByOccasion.Count == 0)
+        {
+            Console.WriteLine($"No tops available for your {occasion} occasion. Add some {occasion} tops!");
+            return;
+        }
+        else if (filteredBottomsByOccasion.Count == 0)
+        {
+            Console.WriteLine($"No bottoms available for your {occasion} occasion. Add some {occasion} bottoms!");
+            return;
+        }
+
+        Top randomT = filteredTopsByOccasion[random.Next(filteredTopsByOccasion.Count)];
+        Bottom randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
+
+        //convert the hasPattern true/false to Patterned/Plain for better clarity for the user
+        //string hasPatternT = randomT.HasPattern ? "Patterned" : "Plain"; 
+        //string hasPatternB = randomB.HasPattern ? "Patterned" : "Plain";
+
+        //if the bottom is a dress then do not assign a top!
+        if (randomB.Type == "Dress")
+        {
+            bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+            Console.WriteLine($"You should Wear This:");
+            Console.WriteLine($"-{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
+        }
+        else
+        {
+            //assigns the random top and the random bottom
+            topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+            bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+            //tell the user what to wear
+            Console.WriteLine($"You should Wear This:");
+            Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
+                $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
+        }
+
+        //if the top is any color (other than black or white) then do not put it with a color other than (black or white)
+        //i.e. if it is a red top then the bottoms should be black or white
+        //if it it a yellow top then the bottoms should be black or white
+        //if it is a black or white top, then the bottoms can be any color
+
+        //if the top is any color in the rainbow but not white or black
+        if (randomT.Color != "white" && randomT.Color != "black")
+        {
+            //then reroll if the bottom is any color but white, black or blue jeans
+            do
+            {
+                // Keep rolling for a random bottom until it's white, black or blue jeans
+                randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
+            }
+            while (randomB.Color != "white" && randomB.Color != "black" && randomB.Type != "jeans");
+            if (randomB.Type == "jeans")
+            {
+                //keep rolling for a random bottom that is jeans until they are blue
+                do
+                {
+                    // Keep rolling for a random bottom until it's white, black or blue jeans
+                    randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
+                }
+                while (randomB.Color != "blue" && randomB.Color != "dark blue" && randomB.Color != "teal");
+
+            }
+        }
+        bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
 
 
-    //tell the user how they'll look!
-    if (occasion == "Party")
+
+
+
+
+
+        //tell the user how she'll look!
+        if (occasion == "party")
     {
         Console.WriteLine("Get ready to shine – your outfit is party perfection.");
     }
-    else if (occasion == "Dressy")
+    else if (occasion == "dressy")
     {
         Console.WriteLine("Dressed to impress! You'll turn heads for sure.");
     }
-    else if (occasion == "Casual")
+    else if (occasion == "casual")
     {
         Console.WriteLine("Perfectly laid-back and stylish. You'll be comfortable and fashionable.");
     }
