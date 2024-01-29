@@ -40,7 +40,7 @@ List<Top> TopsList = new List<Top>()
 
 List<Bottom> BottomsList = new List<Bottom>()
 {
-    new Bottom("Red", true, "Dressy", "Skinny", "Long", "Pants"),
+    new Bottom("Red", true, "Dressy", "Skinny", "Long", "Dress"),
     new Bottom("Red", true, "Business", "Shift", "Long", "Dress"),
     new Bottom("White", false, "Business Casual", "Boot Cut", "Long", "Jeans"),
     new Bottom("Pink", true, "Casual", "A-Line ", "Short", "Skirt"),
@@ -52,7 +52,7 @@ List<Bottom> BottomsList = new List<Bottom>()
     new Bottom("Red", true, "Dressy", "Boot", "Ankle", "Pants"),
     new Bottom("Teal", false, "Business Casual", "Straight", "Medium", "Shorts"),
     new Bottom("Black", false, "Casual",  "Shift", "Long", "Dress"),
-    new Bottom("Brown", true, "Dressy", "Loose", "Short",  "Shorts"),
+    new Bottom("Brown", true, "Dressy", "Loose", "Short",  "Dress"),
     new Bottom("Salmon", false, "Casual", "Skinny", "Ankle", "Jeans"),
         new Bottom("Red", true, "Party", "Skinny", "Long", "Pants"),
     new Bottom("Red", true, "Party", "Shift", "Long", "Dress"),
@@ -395,13 +395,29 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
     //string hasPatternT = randomT.HasPattern ? "Patterned" : "Plain"; 
     //string hasPatternB = randomB.HasPattern ? "Patterned" : "Plain";
 
-    topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
-    bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
-    Console.WriteLine($"You should Wear This:");
+    //if the bottom is a dress then do not assign a top!
+    if (bottomForOutfit != null && bottomForOutfit.Type == "Dress")
+    {
+        bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+        Console.WriteLine($"You should Wear This:");
+        Console.WriteLine($"-{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
 
-    Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
-        $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
-   
+    }
+    else
+    {
+        //assigns the random top and the random bottom
+        topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
+        bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
+        //tell the user what to wear
+        Console.WriteLine($"You should Wear This:");
+        Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
+            $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
+
+    }
+
+
+
+    //tell the user how they'll look!
     if (occasion == "Party")
     {
         Console.WriteLine("Get ready to shine – your outfit is party perfection.");
@@ -411,8 +427,8 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
         Console.WriteLine("Dressed to impress! You'll turn heads for sure.");
     }
     else if (occasion == "Casual")
-    { 
-        Console.WriteLine("Perfectly laid-back and stylish. You'll be comfortable and fashionable."); 
+    {
+        Console.WriteLine("Perfectly laid-back and stylish. You'll be comfortable and fashionable.");
     }
     else
     {
