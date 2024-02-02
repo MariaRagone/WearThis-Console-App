@@ -418,7 +418,7 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
         //if it is a black or white top, then the bottoms can be any color
 
         //if the top is any color in the rainbow but not white or black
-        if (randomT.Color != "white" || randomT.Color != "black")
+        if (randomT.Color == "white" || randomT.Color == "black")
         {
             //then reroll if the bottom is any color but white, black or blue jeans
             do
@@ -428,8 +428,8 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
                 randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
                 break;
             }
-            while (randomB.Color != "white" && randomB.Color != "black" && randomB.Type != "jeans");
-            if (randomB.Type == "jeans")
+            while (randomB.Color == "white" && randomB.Color == "black" && randomB.Type == "jeans");
+            if (randomB.Type == "jeans") //the program is not getting into this part
             {
                 //keep rolling for a random bottom that is jeans until they are blue
                 do
@@ -444,6 +444,7 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
 
             }
         }
+
         bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
         Console.WriteLine("skipped the do/while");
 
