@@ -395,84 +395,86 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
     //string hasPatternT = randomT.HasPattern ? "Patterned" : "Plain"; 
     //string hasPatternB = randomB.HasPattern ? "Patterned" : "Plain";
 
-
-    //if the bottom is a dress then do not assign a top!
-    if (randomB.Type == "dress")
+    if (randomB.Type == "dress") //if the bottom is a dress then do not assign a top
     {
         bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
         Console.WriteLine($"You should Wear This:");
         Console.WriteLine($"-{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
     }
-    else
+    else //if the bottom is not a dress then assign a top and a bottom
     {
         //assigns the random top and the random bottom
         topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
-        //bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
-        ////tell the user what to wear
-
-
-
-        //if the top is any color (other than black or white) then do not put it with a color other than (black or white)
-        //i.e. if it is a red top then the bottoms should be black or white
-        //if it it a yellow top then the bottoms should be black or white
-        //if it is a black or white top, then the bottoms can be any color
-
-        //if the top is any color in the rainbow but not white or black
-        if (randomT.Color == "white" || randomT.Color == "black")
-        {
-            //then reroll if the bottom is any color but white, black or blue jeans
-            do
-            {
-                Console.WriteLine("top isn't black or white");
-                // Keep rolling for a random bottom until it's white, black or blue jeans
-                randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
-                break;
-            }
-            while (randomB.Color == "white" && randomB.Color == "black" && randomB.Type == "jeans");
-            if (randomB.Type == "jeans") //the program is not getting into this part
-            {
-                //keep rolling for a random bottom that is jeans until they are blue
-                do
-                {
-                    Console.WriteLine("bottom is jeans");
-
-                    // Keep rolling for a random bottom until it's white, black or blue jeans
-                    randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
-                    break;
-                }
-                while (randomB.Color != "blue" && randomB.Color != "dark blue" && randomB.Color != "teal");
-
-            }
-        }
-
         bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
-        Console.WriteLine("skipped the do/while");
 
-        Console.WriteLine($"You should Wear This:");
-        Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
-                        $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
+        if (randomT.Color != "white" || randomT.Color != "black") //if the top is any color in the rainbow (not including white or black)
+        {
+            //then pair the colored top with a black, white, or blue jeans bottom
+
+            // Keep rolling for a random bottom until it's white, black or blue jeans
+            randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
+
+            //if the top is any color (other than black or white) then do not put it with a color other than (black or white)
+            //i.e. if it is a red top then the bottoms should be black or white
+            //if it it a yellow top then the bottoms should be black or white
+            //if it is a black or white top, then the bottoms can be any color
+
+
+            //
+            ////then reroll if the bottom is any color but white, black or blue jeans
+            //do
+            //{
+            //    Console.WriteLine("top isn't black or white");
+            //    // Keep rolling for a random bottom until it's white, black or blue jeans
+            //    randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
+            //    break;
+            //}
+            //while (randomB.Color == "white" && randomB.Color == "black" && randomB.Type == "jeans");
+            //if (randomB.Type == "jeans") //the program is not getting into this part
+            //{
+            //    //keep rolling for a random bottom that is jeans until they are blue
+            //    do
+            //    {
+            //        Console.WriteLine("bottom is jeans");
+
+            //        // Keep rolling for a random bottom until it's white, black or blue jeans
+            //        randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
+            //        break;
+            //    }
+            //    while (randomB.Color != "blue" && randomB.Color != "dark blue" && randomB.Color != "teal");
+
+        }
+        else if (randomB.Type == "jeans")
+        { }
 
     }
 
+    Console.WriteLine("skipped the do/while");
 
+    Console.WriteLine($"You should Wear This:");
+    Console.WriteLine($"Top: -{topForOutfit.Category}- {topForOutfit.Color}, {topForOutfit.Fit} fit, {topForOutfit.Length} {topForOutfit.Type} with {topForOutfit.SleeveLength} sleeves \n" +
+                    $"Bottom: -{bottomForOutfit.Category}- {bottomForOutfit.Color}, {bottomForOutfit.Fit}, {bottomForOutfit.Length} length {bottomForOutfit.Type}");
 
-
-    //tell the user how she'll look!
-    if (occasion == "party")
-    {
-        Console.WriteLine("Get ready to shine – your outfit is party perfection.");
-    }
-    else if (occasion == "dressy")
-    {
-        Console.WriteLine("dressed to impress! You'll turn heads for sure.");
-    }
-    else if (occasion == "casual")
-    {
-        Console.WriteLine("Perfectly laid-back and stylish. You'll be comfortable and fashionable.");
-    }
-    else
-    {
-        Console.WriteLine("Confident and stylish – you'll conquer the workday.");
-    }
-    Console.WriteLine();
 }
+
+
+
+
+//tell the user how she'll look!
+if (occasion == "party")
+{
+    Console.WriteLine("Get ready to shine – your outfit is party perfection.");
+}
+else if (occasion == "dressy")
+{
+    Console.WriteLine("dressed to impress! You'll turn heads for sure.");
+}
+else if (occasion == "casual")
+{
+    Console.WriteLine("Perfectly laid-back and stylish. You'll be comfortable and fashionable.");
+}
+else
+{
+    Console.WriteLine("Confident and stylish – you'll conquer the workday.");
+}
+Console.WriteLine();
