@@ -407,12 +407,20 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
         topForOutfit = new Top(randomT.Color, randomT.HasPattern, randomT.Category, randomT.SleeveLength, randomT.Fit, randomT.Length, randomT.Type);
         bottomForOutfit = new Bottom(randomB.Color, randomB.HasPattern, randomB.Category, randomB.Fit, randomB.Length, randomB.Type);
 
-        if (randomT.Color != "white" || randomT.Color != "black") //if the top is any color in the rainbow (not including white or black)
+        if (randomT.Color != "white" && randomT.Color != "black") //if the top is any color in the rainbow (not including white or black)
         {
             //then pair the colored top with a black, white, or blue jeans bottom
+            string[] allowedBottomColors = { "white", "black", "blue" };
+            randomB = filteredBottomsByOccasion.Where(b => allowedBottomColors.Contains(b.Color)).FirstOrDefault();
+            if (randomB != null)
+            {
+                // Keep rolling for a random bottom until it's white, black or blue jeans
+                randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
 
-            // Keep rolling for a random bottom until it's white, black or blue jeans
-            randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
+                Console.WriteLine("No suitable bottom found for the given top color");
+                return;
+            }
+       
 
             //if the top is any color (other than black or white) then do not put it with a color other than (black or white)
             //i.e. if it is a red top then the bottoms should be black or white
@@ -427,7 +435,7 @@ static void getOutfit(string occasion, List<Top> TopsList, List<Bottom> BottomsL
             //    Console.WriteLine("top isn't black or white");
             //    // Keep rolling for a random bottom until it's white, black or blue jeans
             //    randomB = filteredBottomsByOccasion[random.Next(filteredBottomsByOccasion.Count)];
-            //    break;
+            //    break; 
             //}
             //while (randomB.Color == "white" && randomB.Color == "black" && randomB.Type == "jeans");
             //if (randomB.Type == "jeans") //the program is not getting into this part
